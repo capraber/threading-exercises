@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Threading Exercises Application</string>
+    <string name="title_activity_child_thread_handler_looper">ChildThreadHandlerLooperActivity</string>
+    <string name="run_task_one">Run Task One</string>
+    <string name="run_task_two">Run Task Two</string>
+    <string name="quit_child_thread_looper">Quit Child Thread Looper</string>
+    <string name="looper_exercise">Looper Exercise</string>
+    <string name="quit_text">Quit child thread looper.</string>
+    <string name="task_two_execute">Task two execute.</string>
+    <string name="task_one_execute">Task one execute.</string>
+
+</resources>
