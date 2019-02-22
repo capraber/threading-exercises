@@ -31,36 +31,28 @@ class ChildThreadHandlerLooperActivity : AppCompatActivity() {
         mainThreadHandler = object : Handler(Looper.getMainLooper()) {
             override fun handleMessage(msg: Message) {
                 Log.i("MAIN_THREAD", "Receive message from child thread.")
-                when {
-                    msg.what == MAIN_THREAD_TASK_1 -> // If task one button is clicked.
-                        taskStatusTextView.text = getString(R.string.task_one_execute)
-                    msg.what == MAIN_THREAD_TASK_2 -> // If task two button is clicked.
-                        taskStatusTextView.text = getString(R.string.task_two_execute)
-                    msg.what == CHILD_THREAD_QUIT_LOOPER -> // If quit child thread looper button is clicked.
-                        taskStatusTextView.text = getString(R.string.quit_text)
-                }
+                // If task one button is clicked.  -> getString(R.string.task_one_execute)
+                //If task two button is clicked. -> getString(R.string.task_two_execute)
+                // If quit child thread looper button is clicked. -> getString(R.string.quit_text)
             }
         }
 
         // Set on click listener to each button.
         runTaskOneButton.setOnClickListener {
             // When click this button, create a message object.
-            val msg = Message()
-            msg.what = MAIN_THREAD_TASK_1
+            // MAIN_THREAD_TASK_1
             // Use worker thread message Handler to put message into worker thread message queue.
-            workerThread.workerThreadHandler.sendMessage(msg)
         }
 
         // Please see comments for runTaskOneButton.
         runTaskTwoButton.setOnClickListener {
-            val msg = Message()
-            msg.what = MAIN_THREAD_TASK_2
-            workerThread.workerThreadHandler.sendMessage(msg)
+            // When click this button, create a message object.
+            // MAIN_THREAD_TASK_2
+            // Use worker thread message Handler to put message into worker thread message queue.
         }
 
         quitChildThreaLooperButton.setOnClickListener {
             // Click this button will quit child thread looper.
-            workerThread.workerThreadHandler.looper.quit()
         }
     }
 
@@ -74,16 +66,10 @@ class ChildThreadHandlerLooperActivity : AppCompatActivity() {
             Looper.prepare()
 
             // Create child thread Handler.
-            workerThreadHandler = object : Handler(Looper.myLooper()) {
-                override fun handleMessage(msg: Message) {
-                    // When child thread handler get message from child thread message queue.
-                    Log.i("CHILD_THREAD", "Receive message from main thread.")
-                    val message = Message()
-                    message.what = msg.what
-                    // Send the message back to main thread message queue use main thread message Handler.
-                    mainThreadHandler.sendMessage(message)
-                }
-            }
+            // When child thread handler get message from child thread message queue.
+            Log.i("CHILD_THREAD", "Receive message from main thread.")
+            // Send the message back to main thread message queue use main thread message Handler.
+
             // Loop the child thread message queue.
             Looper.loop()
 
@@ -93,9 +79,7 @@ class ChildThreadHandlerLooperActivity : AppCompatActivity() {
                 "This log is printed after Looper.loop() method. Only when this thread loop quit can this log be printed."
             )
             // Send a message to main thread.
-            val msg = Message()
-            msg.what = CHILD_THREAD_QUIT_LOOPER
-            mainThreadHandler.sendMessage(msg)
+            // CHILD_THREAD_QUIT_LOOPER
         }
     }
 }
