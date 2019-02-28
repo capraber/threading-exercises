@@ -16,11 +16,11 @@ class ServiceExampleActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         buttonStart.setOnClickListener{
-            startService(Intent(this, MyServiceExample::class.java))
+            //Start Service
         }
 
         buttonStop.setOnClickListener{
-            stopService(Intent(this, MyServiceExample::class.java))
+            //Stop service
         }
 
         buttonNext.setOnClickListener{
