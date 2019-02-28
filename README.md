@@ -2,8 +2,7 @@
 Threading exercises in Kotlin for for Developers Coaching plan
 
 ## Loopers and Handler exercise
-### [Looper](https://developer.android.com/reference/android/os/Looper)
-### [Handler](https://developer.android.com/reference/android/os/Handler)
+### [Looper](https://developer.android.com/reference/android/os/Looper) [Handler](https://developer.android.com/reference/android/os/Handler)
 - Exercise description:
 Try to reproduce the following steps and image behaviour
 ![alt tag](https://github.com/capraber/threading-exercises/blob/master/android-thread-message-looper-handler-exanple.gif)
@@ -12,3 +11,8 @@ From above picture, you can see below steps.
 2. Worker thread read the message object out from the queue and send a message to main thread also.
 3. Main thread will display different text according to worker thread sent message.
 4. After the “quit child thread looper” button is clicked, worker thread message looper stopped. And worker thread can not handle any messages. So the text view content will not change also.
+
+## Loopers and Handler exercise
+### [Android’s Services](https://developer.android.com/guide/components/services)
+- Exercise description:
+Create a  service that plays an audio in the background. Audio will not stopped if you send the app to background. The only way to stop the audio, is stopping the service .
