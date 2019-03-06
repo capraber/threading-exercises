@@ -12,7 +12,6 @@ From above picture, you can see below steps.
 3. Main thread will display different text according to worker thread sent message.
 4. After the “quit child thread looper” button is clicked, worker thread message looper stopped. And worker thread can not handle any messages. So the text view content will not change also.
 
-## Loopers and Handler exercise
-### [Android’s Services](https://developer.android.com/guide/components/services)
+## [Android’s Services](https://developer.android.com/guide/components/services)
 - Exercise description:
 Create a  service that plays an audio in the background. Audio will not stopped if you send the app to background. The only way to stop the audio, is stopping the service .
